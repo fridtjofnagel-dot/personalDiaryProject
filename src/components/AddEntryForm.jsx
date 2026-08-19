@@ -10,13 +10,22 @@ const AddEntryForm = () => {
     const handleAddEntry = (e) => {
         e.preventDefault(); // this stops the browser from reloading the page if entry is submitted
 
-    
+        
         if (!newEntry) {
             setError(true);
             return;
         }
         
+        const entry = { 
+            id: Date.now(),
+            text: newEntry
+        };
+
+        storeEntries([entry, ...storeEntries])
+
         setError(false);
+        setNewEntries(newEntry)
+
     
     };
     
@@ -28,8 +37,19 @@ const AddEntryForm = () => {
                 </svg>
                 <span>There must have happened something today. Yes, your life is not that exicting, but come on....you're not that boring!!!</span> 
             </div>
-            
-            <button type="submit">Save</button>
+            <textarea
+                value={newEntry}
+                onChange={(e) => {
+                    setNewEntry(e.target.value);
+                    if(error) setError(false);
+                }}
+                placeholder="Please write something...pleeeaaaaasee"
+                className="textarea textarea-bordered w-full"
+                rows={3}
+            />
+            <button type="submit" className="btn btn-primary self-end">Save</button>
         </form>
     );
 }
+
+export default AddEntryForm
