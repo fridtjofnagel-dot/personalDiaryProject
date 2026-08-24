@@ -8,6 +8,3 @@ function DiaryEntryCard ({entry, entriesState, entriesDispatch}){
         entriesDispatch({ type: 'Remove_Entries', entry });
     };
     
-    return (
-        <li classname=
-    )
