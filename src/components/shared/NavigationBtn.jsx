@@ -3,7 +3,10 @@ function NavigationBtn({ page, setHomePage, setAboutMePage }) {
     setHomePage(page === 'Home');
     setAboutMePage(page === 'About Me');
   };
+  console.log(page)
+
   return <button onClick={handleClick}>{page}</button>;
 }
+
 
 export default NavigationBtn;

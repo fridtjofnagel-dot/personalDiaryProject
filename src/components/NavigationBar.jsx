@@ -1,20 +1,21 @@
 import { NavigationBtn } from '.';
 
-function Navbar({setHomePage, setAboutMePage}) {
+function NavigationBar({setHomePage, setAboutMePage}) {
   return (
     <nav className='bg-amber-400'>
       <div>
         <h1>Diary</h1>
+        
       </div>
       <ul className='flex justify-center items-center gap-3'>
         <li>
           <NavigationBtn
             page='Home'
             setHomePage={setHomePage}
-            setAboutMePage={setAboutMePage}
+            setAboutMePage={setAboutMePage}      
           />
         </li>
-        <li>
+        <li>       
           <NavigationBtn
             page='About Me'
             setHomePage={setHomePage}
@@ -26,4 +27,4 @@ function Navbar({setHomePage, setAboutMePage}) {
   );
 }
 
-export default Navbar;
+export default NavigationBar;

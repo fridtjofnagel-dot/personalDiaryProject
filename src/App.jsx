@@ -1,17 +1,26 @@
 import { useState } from 'react'
 import './index.css'
-import { Navbar, AboutMe } from "./components";
+import AboutMe from "./components/AboutMe";
+import NavigationBar from "./components/NavigationBar"
+import AddEntryForm from "./components/AddEntryForm"
 
 function App() {
-  const [homePage, setHomePage] = useState(true);
+  const [HomePage, setHomePage] = useState(true);
   const [AboutMePage, setAboutMePage] = useState(false);
 
   return (
     <div>
-      <Navbar setHomePage={setHomePage} setAboutMePage={setAboutMePage} className='bg-amber-300'/>
-      <main className='bg-amber-500 flex flex-col w-screen min-h-30 p-5'></main>
+      <NavigationBar setHomePage={setHomePage} setAboutMePage={setAboutMePage} className='bg-amber-300'/>
+      <main className='bg-amber-600 flex flex-col w-screen min-h-30 p-5'>
+        {HomePage && <AddEntryForm /> }
+        {AboutMePage && <AboutMe />}
+      </main>
     </div>
   )
 }
+
+
+
+
 
 export default App
