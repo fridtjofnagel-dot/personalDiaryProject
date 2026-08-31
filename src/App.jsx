@@ -4,14 +4,12 @@ import { Navbar, AboutMe } from "./components";
 
 function App() {
   const [homePage, setHomePage] = useState(true);
-  const [cartPage, setCartPage] = useState(false);
-  const [userProfilePage, setUserProfilePage] = useState(false);
+  const [AboutMePage, setAboutMePage] = useState(false);
 
   return (
     <div>
-      <h1>uhdaisascujxaleucabfvejulb.jdksbas</h1>
-      <Navbar />
-      <AboutMe />
+      <Navbar setHomePage={setHomePage} setAboutMePage={setAboutMePage} className='bg-amber-300'/>
+      <main className='bg-amber-500 flex flex-col w-screen min-h-30 p-5'></main>
     </div>
   )
 }

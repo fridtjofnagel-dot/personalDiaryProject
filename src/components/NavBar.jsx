@@ -2,7 +2,7 @@ import { NavigationBtn } from '.';
 
 function Navbar({setHomePage, setAboutMePage}) {
   return (
-    <nav className='bg-primary text-white w-screen flex justify-between items-center p-2 gap-3'>
+    <nav className='bg-amber-400'>
       <div>
         <h1>Diary</h1>
       </div>
