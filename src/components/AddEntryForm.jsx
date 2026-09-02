@@ -1,8 +1,8 @@
 import {storeDiary} from "../storage/localStorage"
 import { useState } from 'react'
 
-function AddEntryForm () {
-    const
+function AddEntryForm ({entriesState, entriesDispatch}) {
+    
     const [newEntry, setNewEntry] = useState('');
 
     const handleSubmit = (e) => {
@@ -13,22 +13,26 @@ function AddEntryForm () {
         const entry = {id: new Date(), title: newEntry}
         storeDiary([entry, ...entriesState.entries]);
         entriesDispatch()
+
+        setNewEntry('')
     }
     return (
-        <div className="w-full max-w-md space-y-8 bg-white rounded-lg shadow p-8">
-            <h3 className="text-2xl bg-amber-950">Fill in new Entry to your Diary</h3>
+        <div className="fieldset bg-amber-200">
+            <h2 className="text-red-200xl bg-amber-250">Fill in new Entry to your Diary</h2>
             <form
                 onSubmit={handleSubmit}
-                className="space-x-1.5 border-4 p-4 rounded-b-box">
+                className="fieldset bg-amber-100 p-10">
                 <input
+                    onChange={(e) => setNewEntry(e.target.value)}
+                    value={newEntry}
                     name="message"
                     type="text"
                     placeholder="pleeeeeeeaaassseee type something! You're not thaaaat booooring"
-                    className="max-w-full bg-amber-200"
+                    className="text"
                 />
                 <button
                     type="submit"
-                    className="text-2xl rounded-b-3xl"
+                    className="text-2xl bg-amber-500 b-xl"
                 >
                     Save your Adventure
                 </button>

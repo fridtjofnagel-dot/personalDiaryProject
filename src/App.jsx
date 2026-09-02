@@ -11,8 +11,10 @@ function App() {
   return (
     <div>
       <NavigationBar setHomePage={setHomePage} setAboutMePage={setAboutMePage} className='bg-amber-300'/>
-      <main className='bg-amber-600 flex flex-col w-screen min-h-30 p-5'>
-        {HomePage && <AddEntryForm /> }
+      <main className='bg-amber-600 flex flex-col w-screen p-105'>
+        {HomePage && <AddEntryForm 
+        entriesState={entriesState} 
+        entriesDispatch={entriesDispatch} /> }
         {AboutMePage && <AboutMe />}
       </main>
     </div>
