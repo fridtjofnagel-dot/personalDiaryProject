@@ -1,30 +1,32 @@
-import { NavigationBtn } from '.';
+import { NavLink } from 'react-router-dom';
 
-function NavigationBar({setHomePage, setAboutMePage}) {
+function NavigationBar() {
   return (
-    <nav className='bg-amber-400'>
+    <nav className='bg-emerald-300 flex justify-between items-center p-3 gap-4'>
       <div>
         <h1>Diary</h1>
-        
-      </div>
-      <ul className='flex justify-center items-center gap-3'>
-        <li>
-          <NavigationBtn
-            page='Home'
-            setHomePage={setHomePage}
-            setAboutMePage={setAboutMePage}      
-          />
-        </li>
-        <li>       
-          <NavigationBtn
-            page='About Me'
-            setHomePage={setHomePage}
-            setAboutMePage={setAboutMePage}      
-          />
-        </li>
-      </ul>
+          <ul className='flex justify-center items-center gap-3'>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? 'btn btn-ghost text-secondary' : 'btn btn-ghost text-white')}
+                to='/'
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? 'btn btn-ghost text-secondary' : 'btn btn-ghost text-white')}
+                to='/profile'
+              >
+                Profile
+              </NavLink>
+            </li>
+          </ul>
+        </div>
     </nav>
-  );
+
+  )
 }
 
-export default NavigationBar;
+export default NavigationBar

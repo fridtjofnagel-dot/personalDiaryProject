@@ -1,28 +1,24 @@
-import { useState } from 'react'
-import './index.css'
-import AboutMe from "./components/AboutMe";
-import NavigationBar from "./components/NavigationBar"
-import AddEntryForm from "./components/AddEntryForm"
+import { AppState } from './conext';
+import { GeneralLayout } from './layouts';
+import { Home, UserProfile } from './pages';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 function App() {
-  const [HomePage, setHomePage] = useState(true);
-  const [AboutMePage, setAboutMePage] = useState(false);
 
   return (
-    <div>
-      <NavigationBar setHomePage={setHomePage} setAboutMePage={setAboutMePage} className='bg-amber-300'/>
-      <main className='bg-amber-600 flex flex-col w-screen p-105'>
-        {HomePage && <AddEntryForm 
-        entriesState={entriesState} 
-        entriesDispatch={entriesDispatch} /> }
-        {AboutMePage && <AboutMe />}
-      </main>
-    </div>
+    <Router>
+      <AppState>
+        <Routes>
+          <Route path='/' element={<GeneralLayout />}>
+            <Route index element={<Home />} />
+            <Route path='/profile' element={<UserProfile />} />
+          </Route>
+        </Routes>
+      </AppState>
+    </Router>
   )
 }
-
-
-
 
 
 export default App

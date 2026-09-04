@@ -4,7 +4,7 @@ function EntryCard({entry}) {
     <div className="card bg-accent w-96 shadow-sm">
         <div className="card-body">
             <h2 className="card-title">Entrynumber</h2>
-            <p>here comes the entry</p>
+            <p>${entry}</p>            
         </div>
     </div>
 }
