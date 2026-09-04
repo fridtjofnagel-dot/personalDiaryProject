@@ -1,19 +1,24 @@
 import { storeDiary } from "../storage/localStorage"
 import { useState } from 'react'
+import { useApp } from '../conext/index'
 
-function AddEntryForm ({entriesState, entriesDispatch}) {
-    
+function AddEntryForm () {
+    const  {diary, setDiary } = useApp();
     const [newEntry, setNewEntry] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault(); // stops the refresh of the whole page when nothing is handled to the arroow-function
         
-        if(!newEntry.trim()) { return alert('You did not just lay in Bed! Oooor did you?')
+        if(!newEntry.trim()) { 
+            return alert('You did not just lay in Bed! Oooor did you?')
         }
 
         const entry = {id: Date.now(), title: newEntry}
-        storeDiary([entry, ...entriesState?.entries || []]);
-        entriesDispatch({type: 'ADD_ENTRY', payload: entry})
+        const updatedDiary = [entry, ...diary]
+
+        setDiary(updatedDiary);
+
+        storeDiary(updatedDiary)
 
         setNewEntry('')
     }

@@ -3,7 +3,7 @@ import { fetchUser } from '../server';
 
 function UserProfile() {
     
-    retunr (
+    return (
         <div>
             <h3 className="text-5xl font-extrabold">pokemon.name</h3>
         </div>
