@@ -6,17 +6,16 @@ import { useApp } from '../conext';
 function Diary () {
 
     useEffect(() => {
-        const data = getDiary();
-        setEntries(data)
+        getDiary(setEntries);
     },[]);
 
     return (
         <div className='flex flex-col justify-center items-center gap-3'>
             <h2 className='text-xl font-bold'>Diary</h2>
             <div className='flex flex-wrap justify-center items-center gap-4'>
-                {entries.map((item) => (
-                    <EntryCard key={item.id} entry={item} />
-                ))}
+                {diary.map((d) => (
+            <EntryCard key={d.id} entry={d} />
+            ))}
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import { AppState } from './context';
+import { AppState } from './conext';
 import { GeneralLayout } from './layouts';
 import { Home, UserProfile } from './pages';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
