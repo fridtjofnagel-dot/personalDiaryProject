@@ -13,7 +13,7 @@ function AddEntryForm () {
             return alert('You did not just lay in Bed! Oooor did you?')
         }
 
-        const entry = {id: Date.now(), title: newEntry}
+        const entry = {id: Date(), title: newEntry}
         const updatedDiary = [entry, ...diary]
 
         setDiary(updatedDiary);
