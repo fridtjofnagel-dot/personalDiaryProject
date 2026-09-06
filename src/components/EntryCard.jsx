@@ -1,9 +1,18 @@
 import { storeDiary } from '../storage/localStorage'
+import { useApp } from '../conext/AppContext'
+
 
 function EntryCard({entry}) {
+    const  {diary, setDiary } = useApp();
 
-    const handleDelete () => {
-        const updatedDiary = diary.filter(())
+    const handleDelete = () => {
+        const updatedDiary = diary.filter((entryDel) => entryDel.id !== entry.id)  
+        storeDiary(updatedDiary);
+        return updatedDiary
+        
+
+
+        // entryDispatch({ type: 'Remove_Entry', entry});
     }
 
     return (
@@ -11,7 +20,7 @@ function EntryCard({entry}) {
             <div className="card-body">
                 <h2 className="card-title">entry - {entry.id}</h2>
                 <p>{entry.title}</p>
-                <button>Delete Entry</button>            
+                <button onClick={() => setDiary(handleDelete(entry))}>Delete Entry</button>            
             </div>
         </div>
     ) 
