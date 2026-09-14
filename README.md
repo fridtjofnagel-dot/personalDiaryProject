@@ -1,4 +1,4 @@
-This is my personal Diary Project. It is meant to practice implementing a form and keep practicing working with React/JS.
+# This is my personal Diary Project. It is meant to practice implementing a form and keep practicing working with React/JS.
 
 
 
