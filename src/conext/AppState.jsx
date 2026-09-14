@@ -8,6 +8,7 @@ import { getDiary } from '../storage/localStorage';
 function AppState({ children }) {
     const [ diary, setDiary ] = useState(getDiary())
 
+
     return (
         <AppContext.Provider
             value={{
