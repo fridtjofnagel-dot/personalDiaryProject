@@ -1,3 +1,7 @@
+This is my personal Diary Project. It is meant to practice implementing a form and keep practicing working with React/JS.
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
