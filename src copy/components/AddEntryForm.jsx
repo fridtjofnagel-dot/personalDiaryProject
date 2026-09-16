@@ -1,30 +1,24 @@
-import { storeDiary } from "../storage/localStorage"
+import {storeDiary} from "../storage/localStorage"
 import { useState } from 'react'
-import { useApp } from '../conext/index'
 
-function AddEntryForm () {
-    const  {diary, setDiary } = useApp();
+function AddEntryForm ({entriesState, entriesDispatch}) {
+    
     const [newEntry, setNewEntry] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault(); // stops the refresh of the whole page when nothing is handled to the arroow-function
         
-        if(!newEntry.trim()) { 
-            return alert('You did not just lay in Bed! Oooor did you?')
-        }
-
-        const entry = {id: Date(), title: newEntry}
-        const updatedDiary = [entry, ...diary]
-
-        setDiary(updatedDiary);
-
-        storeDiary(updatedDiary)
+        if(!newEntry) return alert('You did not just lay in Bed! Oooor did you?')
+        
+        const entry = {id: new Date(), title: newEntry}
+        storeDiary([entry, ...entriesState.entries]);
+        entriesDispatch()
 
         setNewEntry('')
     }
     return (
         <div className="fieldset bg-amber-200">
-            <h2 className="bg-amber-200">Fill in new Entry to your Diary</h2>
+            <h2 className="text-red-200xl bg-amber-250">Fill in new Entry to your Diary</h2>
             <form
                 onSubmit={handleSubmit}
                 className="fieldset bg-amber-100 p-10">
